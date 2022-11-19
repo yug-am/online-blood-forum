@@ -1,1 +1,5 @@
 rails generate controller Admin dashboard
+rails g model user email:index location_id:integer:index
+rails generate model Request requestID:string:index bloodType:string location:string isConfirmed:boolean allocationCode:integer
+req = Request.new(requestID: "78", "bloodType": "A+", "location":"Calicut",isConfirmed:"0",allocationCode:"133")
+req.save

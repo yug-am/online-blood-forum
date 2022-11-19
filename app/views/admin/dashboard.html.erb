@@ -1,2 +1,31 @@
 <h1>Admin#dashboard</h1>
 <p>Find me in app/views/admin/dashboard.html.erb</p>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>requestID</th>
+        <th>Blood Group</th>
+        <th>Location</th>
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @requests.each do |request| %>
+             <tr>
+          <td> <%= request.requestID %></td>
+          <td> <%= request.bloodType %></td>
+          <td><%= request.location %></td>
+          
+          
+          
+          
+          
+          
+        </tr>
+    
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
