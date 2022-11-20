@@ -3,11 +3,17 @@ class AdminController < ApplicationController
      
      # puts Request.all
     @requests = Request.all
+    #@donors = Donor.all
+
+
   #@requests
   end
   def handle_req
-   # .find_by(name: 'David')
     @request =Request.find_by(requestID:params[:id])
+    @gp=@request.bloodType
+    #@donorsPost.where(user_id: @user.id)
+    @donors=Donor.where(bloodGroup:@gp)
     #@request =Request.find(params[:id]) 
 end
+
 end

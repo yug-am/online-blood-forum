@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_19_180125) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_20_054518) do
+  create_table "donors", force: :cascade do |t|
+    t.string "firstName"
+    t.string "middleName"
+    t.string "lastName"
+    t.string "email"
+    t.integer "age"
+    t.integer "mobileNo"
+    t.string "gender"
+    t.string "location"
+    t.string "bloodGroup"
+    t.string "donorID"
+    t.string "govtID"
+    t.boolean "isUsed"
+    t.date "lastGivenDate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "requests", force: :cascade do |t|
     t.string "requestID"
     t.string "bloodType"

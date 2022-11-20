@@ -1,4 +1,5 @@
 <h1>Admin#dashboard</h1>
+
 <p>Find me in app/views/admin/dashboard.html.erb</p>
 <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
@@ -6,18 +7,32 @@
         <th>requestID</th>
         <th>Blood Group</th>
         <th>Location</th>
-        <th> </th>
+        <!remove this>
+        <th> Is confirmed</th>
+        <th>action</th>
+        
       </tr>
     </thead>
 
     <tbody>
       <% @requests.each do |request| %>
+           <% if request.isConfirmed==false%>
              <tr>
+
           <td> <%= request.requestID %></td>
           <td> <%= request.bloodType %></td>
           <td><%= request.location %></td>       
+             <!remove this>
+        
+          <td><%= request.isConfirmed %></td> 
+
+          <td>
+          	<%@req_id=request.requestID%>
+  <%= link_to "Handle Req", handle_req_path(@req_id)%>
+            
+          </td>       
         </tr>
-    
+    <%end%>
       <% end %>
     </tbody>
   </table>
