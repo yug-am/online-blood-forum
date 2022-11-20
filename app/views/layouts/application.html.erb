@@ -12,6 +12,11 @@
   </head>
   <body>
     <div class="container">
+            <% if flash[:notice]  %>
+           
+    <%= render 'layouts/alerts' %>
+    <%end %>
+
           <%= yield %>
     </div>
    

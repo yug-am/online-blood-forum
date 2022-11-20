@@ -26,7 +26,7 @@
         
           <td><%= donor.isUsed %></td> 
 
-          <td>
+          <td>   <%= link_to "Allocate",  admin_dashboard_path(:did=> donor.donorID,:rid=>@request.requestID ), class: "btn btn-secondary" %>
           </td>       
         </tr>
     <%end%>

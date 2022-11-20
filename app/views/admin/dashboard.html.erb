@@ -15,6 +15,11 @@
     </thead>
 
     <tbody>
+      <%if @allocation_here %>
+      Last allocation: <%=@donor_allo.donorID%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+      on <%= @request_allo.updated_at %>
+
+          <%end%>
       <% @requests.each do |request| %>
            <% if request.isConfirmed==false%>
              <tr>
