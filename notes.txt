@@ -11,13 +11,31 @@ req = Request.new(requestID: "25", "bloodType": "AB+", "location":"Calicut",isCo
 req.save
 req = Request.new(requestID: "15", "bloodType": "A-", "location":"Kochi",isConfirmed:"0",allocationCode:"")
 req.save
-req = Request.new(requestID: "47", "bloodType": "B+", "location":"Wayanad",isConfirmed:"0",allocationCode:"133")
+req = Request.new(requestID: "47", "bloodType": "B+", "location":"Wayanad",isConfirmed:"0",allocationCode:"")
 req.save
 req = Request.new(requestID: "96", "bloodType": "O-", "location":"Wayanad",isConfirmed:"1",allocationCode:"133")
 req.save
+-------reset-------
+req = Request.find_by(requestID:"78")
+req.update(isConfirmed: false)
+req.save
+don =Donor.find_by(donorID:"4078")
+don.update(isUsed: false)
+don.save
+---reset2-------
+don =Donor.find_by(donorID:"4072")
+don.update(isUsed: false)
+don.save
+req = Request.find_by(requestID:"78")
+req.save
+=======ext-=========
+update(isUsed: true)
+        @request_allo.update(isConfirmed: true)	
 
 rails g model Donor firstName:string middleName:string lastName:string email:string age:integer mobileNo:integer gender:string location:string bloodGroup:string donorID:string govtID:string isUsed:boolean lastGivenDate:date
 don=Donor.new(firstName:"Yugam", middleName:"", lastName:"Parashar", email:"Yugam11parashar@gmail.com", age:"23", mobileNo:"8826763400", gender:"M", location:"Calicut", bloodGroup:"A+", donorID:"4078", isUsed:"0", lastGivenDate:Date.parse('2022-08-05'))
 don.save
 don=Donor.new(firstName:"Swapnil", middleName:"", lastName:"Baviskar", email:"swpanpil_1@gmail.com", age:"24", mobileNo:"72891434", gender:"M", location:"Calicut", bloodGroup:"A+", donorID:"4018", isUsed:"0", lastGivenDate:Date.parse('2022-07-01'))
+don.save
+don=Donor.new(firstName:"Vaibhav", middleName:"", lastName:"Raibole", email:"v_1@gmail.com", age:"26", mobileNo:"72891434", gender:"M", location:"Calicut", bloodGroup:"B+", donorID:"4072", isUsed:"0", lastGivenDate:Date.parse('2022-07-01'))
 don.save
