@@ -1,26 +1,34 @@
 <% if $is_admin %>
-<h1>Admin#dashboard</h1>
 
-<p>Find me in app/views/admin/dashboard.html.erb</p>
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand"><h4 style="color:  darkorchid; "> <%= image_tag 'img_dashboard.png', size:"30" %>    Admin Dashboard</h4></a>
+    
+  </div>
+</nav>
 
 <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
-        <th>requestID</th>
+        <th>Request ID</th>
         <th>Blood Group</th>
         <th>Location</th>
         <!remove this>
         <th> Is confirmed</th>
-        <th>action</th>
+        <th>Action</th>
         
       </tr>
     </thead>
 
     <tbody>
       <%if @allocation_here %>
-      Last allocation: <%=@donor_allo.donorID%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+      <div class="alert alert-info" role="alert">
+ Last allocation: <%=@donor_allo.donorID%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
        <%= @last_allocation %>
 
+</div>
+
+      
           <%end%>
       <% @requests.each do |request| %>
            <% if request.isConfirmed==false%>
@@ -35,7 +43,7 @@
 
           <td>
           	<%@req_id=request.requestID%>
-  <%= link_to "Handle Req", handle_req_path(@req_id)%>
+  <%= link_to "Handle Request", handle_req_path(@req_id), class:"btn btn-primary" %>
             
           </td>       
         </tr>
@@ -50,7 +58,7 @@
 
  </br>
  <center>
-   <img src="img_404.png" class="center" width="400"   height="500" />
+   <%= image_tag 'img_404.png', size:"300" %>
   </center>
   
 <% end %>

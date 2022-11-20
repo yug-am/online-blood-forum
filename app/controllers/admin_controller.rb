@@ -12,7 +12,7 @@ class AdminController < ApplicationController
      @donor_allo=""
      @donor_id_allo=""
      @last_allocation=""
-    if @is_admin
+    if $is_admin
    
     if params[:did]
       @allocation_here=true
@@ -25,7 +25,7 @@ class AdminController < ApplicationController
 
 
        temp_time=@donor_allo.updated_at.in_time_zone(TZInfo::Timezone.get('Asia/Kolkata'))
-       @last_allocation= temp_time.to_time.strftime('at %-I :%M %p, %dth of %B, %Y')
+       @last_allocation= temp_time.to_time.strftime("at %-I:%M %p, %dth %B '%Y")
      
      end
       end

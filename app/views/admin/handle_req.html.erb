@@ -1,11 +1,48 @@
 <% $is_admin%>
 <% if $is_admin %>
-</br>
-</br>
-<h6> Request ID: <%= @request.requestID %>, bloodGroup: <%= @request.bloodType %>, location: <%= @request.location %></h6>
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand"><h4 style="color:  darkorchid; "> <%= image_tag 'img_handle_req.png', size:"30" %>    Handle Request</h4></a>
+    
+  </div>
+</nav>
+
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Request ID</th>
+        <th>Blood Group</th>
+        <th>Location</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td> <%= @request.requestID %></td>
+
+        <td> <%= @request.bloodType %></td>
+
+        <td> <%= @request.location %></td>
+
+      </tr>
+    </tbody>
+  </table>
+
 <% if @donors.empty? %>
-<h6>No blood </h6>
+   <h4 style="color:  darkorchid; text-align: center;">No Matching Donors for this Request</h4>
+ 
+
+ </br>
+ <center>
+   
+  <%= image_tag 'img_warning.png', size:"300" %>
+  </center>
+
 <%else%>
+<div>
+<center><h6>Donors</h6></center>
 <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
@@ -31,7 +68,7 @@
         
           <td><%= donor.isUsed %></td> 
 
-          <td>   <%= link_to "Allocate",  admin_dashboard_path(:did=> donor.donorID,:rid=>@request.requestID ), class: "btn btn-secondary" %>
+          <td>   <%= link_to "Allocate",  admin_dashboard_path(:did=> donor.donorID,:rid=>@request.requestID ),  class:"btn btn-success"  %>
           </td>       
         </tr>
     <%end%>
@@ -46,6 +83,6 @@
 
  </br>
  <center>
-   <img src="img_404.png" class="center" width="400"   height="500" />
+    <%= image_tag 'img_404.png', size:"300" %>
   </center>
 <% end %>
