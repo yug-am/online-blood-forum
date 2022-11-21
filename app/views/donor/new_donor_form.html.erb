@@ -1,0 +1,70 @@
+
+
+
+<body>
+<h1> Enter the Donor Information </h1>
+<%= form_for @donor do |f| -%>
+    <label> Firstname </label>
+    <br>
+    <%= f.text_field :firstName ,:required => true%>
+    <br>
+    <label> Middlename </label>
+    <br>
+    <%= f.text_field :middleName %>
+    <br>
+    <label> Lastname </label>
+    <br>
+    <%= f.text_field :lastName %>
+    <br>
+    <label> Email </label>
+    <br>
+    <%= f.email_field :email, :required => true%>
+    <br>
+    <label> Age </label>
+    <br>
+    <%= f.text_field :age ,:required => true %>
+    <br>
+    <label> MobileNo </label>
+    <br>
+    <%= f.text_field :mobileNo %>
+    <br>
+    <label> Gender </label>
+    <br>
+    <%= f.text_field :gender %>
+    <br>
+ 
+    <label> Location </label>
+    <br>
+    <%= f.text_field :location ,:required => true %>
+    <br>
+ 
+    <label> Bloodgroup </label>
+    <br>
+    <%= f.text_field :bloodGroup ,:required => true %>
+    <br>
+    <label> Government ID </label>
+    <br>
+    <%= f.text_field :govtID  ,:required => true%>
+    <br>
+    <label> Last Blood Donation Date </label>
+    <br>
+    <%= f.date_field :lastGivenDate , value: Date.today%>
+    <br>
+    <%= f.submit "Submit" %>
+
+<% end -%>
+</body>
+
+
+
+
+<br />
+<h1> Display All Donor Information </h1>
+<% if !@donors.blank? %>
+    <% for item in @donors %>
+    <%= item.firstName %> <%= item.middleName %> <%= item.lastName %> <%= item.email %> <%= item.age %> <%= item.mobileNo %> <%= item.gender %> <%= item.location %> <%= item.bloodGroup %> <%= item.govtID %> <%= item.donorID %> <%= item.lastGivenDate %> <br />
+    <% end %>
+<% else %>
+
+<% end %>
+
