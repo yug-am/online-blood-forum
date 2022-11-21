@@ -15,6 +15,8 @@ req = Request.new(requestID: "47", "bloodType": "B+", "location":"Wayanad",isCon
 req.save
 req = Request.new(requestID: "96", "bloodType": "O-", "location":"Wayanad",isConfirmed:"1",allocationCode:"133")
 req.save
+req = Request.new(requestID: "189", "bloodType": "AB-", "location":"NITC",isConfirmed:"0",allocationCode:"")
+req.save
 -------reset-------
 req = Request.find_by(requestID:"78")
 req.update(isConfirmed: false)

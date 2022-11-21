@@ -22,10 +22,17 @@
 
     <tbody>
       <%if @allocation_here %>
-      <div class="alert alert-info" role="alert">
- Last allocation: <%=@donor_allo.id%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+      <div class="alert alert-danger" role="alert">
+        <% if @donor_id_allo == "-404"%>
+ Last Action allocated: <%=@donor_allo.id%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
        <%= @last_allocation %>
-
+<%else%>
+      <div class="alert alert-info" role="alert">
+        <% if @donor_id_allo == -404%>
+ Last Action Declined: RequestID <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+       on <%= @last_allocation %>
+       <%end%>
+ <%end%>
 </div>
 
       

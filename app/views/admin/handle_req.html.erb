@@ -31,6 +31,7 @@
   </table>
 
 <% if @donors.empty? %>
+ <%= link_to "Delete",  admin_dashboard_path(:did=> -404,:rid=>@request.requestID ),  class:"btn btn-danger"  %>
    <h4 style="color:  darkorchid; text-align: center;">No Matching Donors for this Request</h4>
  
 
