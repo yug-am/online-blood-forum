@@ -19,8 +19,8 @@ class AdminController < ApplicationController
       if not @request_allo.isConfirmed
       @allocation_here=true
        
-       @donor_allo = Donor.find_by(donorID:params[:did])
-       @donor_id_allo= @donor_allo.donorID
+       @donor_allo = Donor.find_by(id:params[:did])
+       @donor_id_allo= @donor_allo.id
 
        #user = User.find_by(name: 'David')
       @donor_allo.update(isUsed: true)
@@ -36,12 +36,15 @@ class AdminController < ApplicationController
   end
   def handle_req
     @request=""
-    @donors=""
+    @donors="" 
     if $is_admin
+    @donors=Donor.all
+    
     @request =Request.find_by(requestID:params[:id])
     @gp=@request.bloodType
     #@donorsPost.where(user_id: @user.id)
     @donors=Donor.where(bloodGroup:@gp)
+    @donors=@donors.where(isUsed:false)
     #@request =Request.find(params[:id]) 
   end
     end

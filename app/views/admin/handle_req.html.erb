@@ -61,14 +61,14 @@
            <% if donor.isUsed==false%>
              <tr>
 
-          <td> <%= donor.donorID %></td>
+          <td> <%= donor.id %></td>
           <td> <%= donor.bloodGroup %></td>
           <td><%= donor.location %></td>       
              <!remove this>
         
           <td><%= donor.isUsed %></td> 
 
-          <td>   <%= link_to "Allocate",  admin_dashboard_path(:did=> donor.donorID,:rid=>@request.requestID ),  class:"btn btn-success"  %>
+          <td>   <%= link_to "Allocate",  admin_dashboard_path(:did=> donor.id,:rid=>@request.requestID ),  class:"btn btn-success"  %>
           </td>       
         </tr>
     <%end%>

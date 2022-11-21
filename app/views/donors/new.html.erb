@@ -46,10 +46,11 @@
     <br>
     <%= f.text_field :govtID  ,:required => true%>
     <br>
-    <label> Last Blood Donation Date </label>
+    <label>Donation Date </label>
     <br>
-    <%= f.date_field :lastGivenDate , value: Date.today%>
+    <%= f.date_field :lastGivenDate ,    value: Date.today%>
     <br>
+    <%= f.hidden_field :isUsed, :value => false %>
     <%= f.submit "Submit" %>
 
 <% end -%>
