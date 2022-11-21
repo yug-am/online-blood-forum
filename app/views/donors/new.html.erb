@@ -1,18 +1,20 @@
 
 
+<% location_list =["NITC","KMCT","IIM Kozhikode","Baby Memorial Hospital","Palakkad"]%>
+<% blood_group_list =["A+","A-","B+","B-","AB+","AB-","O+","O-"]%>
 
 <body>
 <h1> Enter the Donor Information </h1>
 <%= form_for @donor do |f| -%>
-    <label> Firstname </label>
+    <label> First name </label>
     <br>
     <%= f.text_field :firstName ,:required => true%>
     <br>
-    <label> Middlename </label>
+    <label> Middle name </label>
     <br>
     <%= f.text_field :middleName %>
     <br>
-    <label> Lastname </label>
+    <label> Last name </label>
     <br>
     <%= f.text_field :lastName %>
     <br>
@@ -24,23 +26,29 @@
     <br>
     <%= f.text_field :age ,:required => true %>
     <br>
-    <label> MobileNo </label>
+    <label> Mobile No </label>
     <br>
     <%= f.text_field :mobileNo %>
     <br>
     <label> Gender </label>
-    <br>
-    <%= f.text_field :gender %>
-    <br>
+
+   <%= f.radio_button :gender, "Male" %>
+<%= f.label :gender, "Male" %>
+<%= f.radio_button :gender, "Female" %>
+<%= f.label :gender, "Female" %>
+<%= f.radio_button :gender, "Other" %>
+<%= f.label :gender, "Other" %>
+
+<br>
  
     <label> Location </label>
     <br>
-    <%= f.text_field :location ,:required => true %>
+    <%= f.select :location, location_list %>
     <br>
  
     <label> Bloodgroup </label>
     <br>
-    <%= f.text_field :bloodGroup ,:required => true %>
+      <%= f.select :bloodGroup, blood_group_list %>
     <br>
     <label> Government ID </label>
     <br>
