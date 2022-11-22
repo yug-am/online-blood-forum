@@ -22,12 +22,12 @@
         <% if @donor_id_allo == -404%>
       <div class="alert alert-danger" role="alert">
       
-         Last Action Declined: RequestID <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+         Last Request was Declined: RequestID <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
        on <%= @last_allocation %>
  
 <%else%>
       <div class="alert alert-info" role="alert">
-Last Action allocated: <%=@donor_allo.id%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+Last Request was Accepted: <%=@donor_allo.id%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
        <%= @last_allocation %>
        
  <%end%>

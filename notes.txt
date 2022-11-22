@@ -1,3 +1,9 @@
+------------Admin using Requestor DB-------
+ 
+req=Requestor.all
+req
+target=req.find_by_emailI(d"callmeadmin")//any id
+
 ----------------- Admin ----------
 rails g model Admin adminname:string password_digest:string
 
@@ -28,6 +34,10 @@ req.save
 req = Request.new(requestID: "189", "bloodType": "AB-", "location":"NITC",isConfirmed:"0",allocationCode:"")
 req.save
 
+----------------------
+adm=Admin.new(admin:"swapnil",password:"iamswapnil")
+check=Admin.find_by_adminname([adminname to login])
+check.password==[p/w to check]
 
 
 -------reset-------
@@ -59,6 +69,12 @@ don.save
 
 don=Donor.new(firstName:"Sarita", middleName:"", lastName:"X",email:"sarita_lab@gmail.com", age:"26", mobileNo:"798", gender:"F", location:"Calicut",bloodGroup:"A+", donorID:"809", isUsed:"0", lastGivenDate:Date.parse('2022-07-01'))
 don.save
+
+
+==========Admin=============
+reqr = Requestor.new(requestID: "78", "bloodType": "A+", "location":"Calicut",isConfirmed:"0",allocationCode:"")
+req.save
+
 -===============Delete======
 Donor.delete_all
 Request.delete_all
