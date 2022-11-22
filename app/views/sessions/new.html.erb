@@ -21,6 +21,8 @@
 <div class="form-group">
 <%= label_tag :password %>
 <%= password_field_tag :password ,"",class:"form-control"%>
+<%= password_field_tag :password ,"",class:"form-control"%>
+
 </div>
 <div class="form-group">
 
@@ -34,7 +36,9 @@
 
     </div>
     <div class="col-sm">
-      
+      <%if notice %>
+<%=render 'layouts/alert'%>
+      <%end%>
     </div>
   </div>
 </div>

@@ -19,7 +19,11 @@
 
     <tbody>
       <tr>
-        <td> <%= @request.id %></td>
+        <td> <%= @request.id %> 
+<%#=id:"%>
+<%temp_req_mail= Requestor.find(@request.requestorID).emailId %>
+<%#= temp_req_mail %>
+         </td>
 
         <td> <%= @request.bloodType %></td>
 
@@ -72,6 +76,7 @@
           </td>
         </tr>
     <%end%>
+      <% end %>
       <% end %>
     </tbody>
   </table>

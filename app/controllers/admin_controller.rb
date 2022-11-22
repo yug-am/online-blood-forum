@@ -23,7 +23,7 @@ final = 10 ** (dig) - 1
 @donor_allo = ""
 @donor_id_allo = ""
 @last_allocation = ""
-if $is_admin
+#if $is_admin
 
 if params[:did]
 @request_allo = Request.find_by(id: params[:rid])
@@ -43,7 +43,7 @@ temp_time = @request_allo.updated_at.in_time_zone(TZInfo::Timezone.get('Asia/Kol
 
 #user = User.find_by(name: 'David')
 
-end
+#end
 end
 end
 
@@ -51,7 +51,7 @@ end
 def handle_req
 @request = ""
 @donors = ""
-if $is_admin
+#if $is_admin
 @donors = Donor.all
 
 @request = Request.find_by(id: params[:id])
@@ -60,7 +60,7 @@ if $is_admin
 @donors = Donor.where(bloodGroup: @gp)
 @donors = @donors.where(isUsed: false)
 # @request = Request.find(params[: id])
-end
+#end
 end
 
 def admin_login
