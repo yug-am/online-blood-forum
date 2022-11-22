@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'admin/dashboard'
  # resources :admin
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-    get "/adm_  dashboard", to: "admin#dashboard"
+    get "/admin_dashboard", to: "admin#dashboard"
+     get "/admin_login", to: "admin#admin_login"
     get "/handle_req/:id", to: "admin#handle_req", as:"handle_req"
    # get "/donor_form", to: "donor#new_donor_form"
   # Defines the root path route ("/")
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
    resources :admins
 
    resources :requests
-   get 'req_dashbaord',to:'dashboard#index',as:'req_dashbaord'
+   get 'req_dashboard',to:'dashboard#index',as:'req_dashboard'
    get 'request_new',to:"requests#new",as:"request_new"
     get 'request_list',to:"requests#index",as:"request_list"
   resources :requestors

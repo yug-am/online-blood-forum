@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_045438) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_104736) do
   create_table "admins", force: :cascade do |t|
     t.string "adminname"
     t.string "password_digest"
@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_045438) do
     t.string "requestIds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "isAdmin", default: false
     t.index ["emailId"], name: "index_requestors_on_emailId", unique: true
   end
 

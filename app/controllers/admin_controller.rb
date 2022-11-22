@@ -10,8 +10,8 @@ end
 def error_pg
 end
 
-
-
+#admin lock
+#before_action :require_user_logged_in!
 def dashboard
 $is_admin = true
 dig = 4

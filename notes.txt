@@ -62,3 +62,13 @@ don.save
 -===============Delete======
 Donor.delete_all
 Request.delete_all
+
+
+==========Admin login==============
+
+#ADD is admin
+rails generate migration add_isAdmin_to_requestors isAdmin:boolean 
+#default 
+Set the isAdmin value to  false by editing the  migration file created. # , default: false
+=>add_column :requestors, :isAdmin, :boolean, default: false
+rake db:migrate

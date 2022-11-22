@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
       # allows only logged in user
       redirect_to req_login_path, alert: 'You must be signed in' if current_requestor.nil?
     end
+      def require_admin_logged_in!
+      # allows only logged in user
+      redirect_to req_login_path, alert: 'Admin must be signed in' if current_requestor.nil? 
+    end
 end

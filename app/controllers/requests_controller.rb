@@ -1,4 +1,4 @@
-class RequestsController < ApplicationController
+  class RequestsController < ApplicationController
   before_action :set_request, only: %i[ show edit update destroy ]
   before_action :require_user_logged_in!
 
@@ -27,7 +27,7 @@ class RequestsController < ApplicationController
     respond_to do |format|
       if @request.save
        # format.html { redirect_to request_url(@request), notice: "Request was successfully created." }
-        format.html { redirect_to req_dashbaord_path, notice: "Request was successfully created." }
+        format.html { redirect_to req_dashboard_path, notice: "Request was successfully created." }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new, status: :unprocessable_entity }
