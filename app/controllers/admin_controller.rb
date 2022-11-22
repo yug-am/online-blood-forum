@@ -1,6 +1,17 @@
 class AdminController < ApplicationController
+
+  # has_secure_password
+
+def new
+  @admin=Admin.new
+end
+
+
 def error_pg
 end
+
+
+
 def dashboard
 $is_admin = true
 dig = 4
@@ -15,7 +26,7 @@ final = 10 ** (dig) - 1
 if $is_admin
 
 if params[:did]
-@request_allo = Request.find_by(requestID: params[:rid])
+@request_allo = Request.find_by(id: params[:rid])
 if not @request_allo.isConfirmed
 @allocation_here = true
 if params[:did] =="-404"
@@ -43,13 +54,18 @@ def handle_req
 if $is_admin
 @donors = Donor.all
 
-@request = Request.find_by(requestID: params[:id])
+@request = Request.find_by(id: params[:id])
 @gp = @request.bloodType
 # @donorsPost.where(user_id: @user.id)
 @donors = Donor.where(bloodGroup: @gp)
 @donors = @donors.where(isUsed: false)
 # @request = Request.find(params[: id])
 end
+end
+
+def admin_login
+#log me in
+
 end
 
 end

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_20_054518) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_045438) do
+  create_table "admins", force: :cascade do |t|
+    t.string "adminname"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password"
+  end
+
   create_table "donors", force: :cascade do |t|
     t.string "firstName"
     t.string "middleName"
@@ -29,6 +37,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_054518) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "requestors", force: :cascade do |t|
+    t.string "emailId"
+    t.string "password_digest"
+    t.string "requestIds"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emailId"], name: "index_requestors_on_emailId", unique: true
+  end
+
   create_table "requests", force: :cascade do |t|
     t.string "requestID"
     t.string "bloodType"
@@ -37,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_054518) do
     t.integer "allocationCode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "requestorID"
     t.index ["requestID"], name: "index_requests_on_requestID"
   end
 

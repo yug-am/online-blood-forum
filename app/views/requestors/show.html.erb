@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @requestor %>
+
+<div>
+  <%= link_to "Edit this requestor", edit_requestor_path(@requestor) %> |
+  <%= link_to "Back to requestors", requestors_path %>
+
+  <%= button_to "Destroy this requestor", @requestor, method: :delete %>
+</div>

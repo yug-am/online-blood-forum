@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Requests by the Requestor : <%=current_requestor.emailId %></h1>
+
+<table id="requests" class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Requestor ID</th>
+      <th scope="col">Blood Group</th>
+      <th scope="col">Location</th>
+      <th scope="col">Handle</th>
+      <th scope="col">Allocation Code</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @requests.each do |request| %>
+  <tr>
+    <%= render request %>
+    
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New request", new_request_path %>

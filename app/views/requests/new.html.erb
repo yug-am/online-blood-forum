@@ -1,0 +1,9 @@
+<h1>Welcome : <%=current_requestor.emailId %></h1>
+
+<%= render "form", request: @request %>
+
+<br>
+
+<div>
+  <%= link_to "Back to Dashboard", req_dashbaord_path %>
+</div>

@@ -3,7 +3,7 @@
 <nav class="navbar bg-light">
   <div class="container-fluid">
     <a class="navbar-brand"><h4 style="color:  darkorchid; "> <%= image_tag 'img_dashboard.png', size:"30" %>    Admin Dashboard</h4></a>
-    
+
   </div>
 </nav>
 
@@ -13,46 +13,44 @@
         <th>Request ID</th>
         <th>Blood Group</th>
         <th>Location</th>
-        <!remove this>
-        <th> Is confirmed</th>
         <th>Action</th>
-        
+
       </tr>
     </thead>
 
     <tbody>
       <%if @allocation_here %>
+        <% if @donor_id_allo == -404%>
       <div class="alert alert-danger" role="alert">
-        <% if @donor_id_allo == "-404"%>
- Last Action allocated: <%=@donor_allo.id%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
-       <%= @last_allocation %>
+      
+         Last Action Declined: RequestID <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+       on <%= @last_allocation %>
+ 
 <%else%>
       <div class="alert alert-info" role="alert">
-        <% if @donor_id_allo == -404%>
- Last Action Declined: RequestID <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
-       on <%= @last_allocation %>
-       <%end%>
+Last Action allocated: <%=@donor_allo.id%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+       <%= @last_allocation %>
+       
  <%end%>
 </div>
 
-      
+
           <%end%>
       <% @requests.each do |request| %>
            <% if request.isConfirmed==false%>
              <tr>
 
-          <td> <%= request.requestID %></td>
+          <td> <%= request.id %></td>
           <td> <%= request.bloodType %></td>
-          <td><%= request.location %></td>       
-             <!remove this>
-        
-          <td><%= request.isConfirmed %></td> 
+          <td><%= request.location %></td>
+           
 
           <td>
-          	<%@req_id=request.requestID%>
+            <%@req_id=request.id%>
+          	
   <%= link_to "Handle Request", handle_req_path(@req_id), class:"btn btn-primary" %>
-            
-          </td>       
+
+          </td>
         </tr>
     <%end%>
       <% end %>
@@ -67,7 +65,7 @@
  <center>
    <%= image_tag 'img_404.png', size:"300" %>
   </center>
-  
+
 <% end %>
 
   <br>

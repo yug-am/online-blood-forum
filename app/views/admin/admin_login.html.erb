@@ -1,0 +1,14 @@
+<%@admin%>
+<body>
+<h1> Enter the Admin credentials </h1>
+<%= form_for Admin.new do |f| %>
+    <label> Admin user name </label>
+    <br>
+    <%= f.text_field :adminname ,:required => true%>
+    <br>
+    <%= f.submit "Submit" %>
+
+<% end %>
+</body>
+<br />
+

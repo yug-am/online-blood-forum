@@ -1,0 +1,32 @@
+<%= current_requestor.id%>
+<% if request.requestorID == current_requestor.id.to_s   %>
+
+  <td>
+
+    <%= request.requestorID %>
+  </td>
+
+  <td>
+
+    <%= request.bloodType %>
+  </td>
+
+  <td>
+
+    <%= request.location %>
+  </td>
+
+  <td>
+
+    <%= request.isConfirmed %>
+  </td>
+
+  <td>
+
+    <%= request.allocationCode %>
+  </td>
+  <td>
+      <%= link_to "Show this request", request %>
+    </td>
+<% end %>
+

@@ -1,0 +1,61 @@
+
+
+      <br>
+
+<h1>Blood Donation Fourm</h1>
+
+
+
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+
+    </div>
+
+
+
+
+    <div class="col-mm">
+
+    <% if current_requestor %>
+Welcome  : <%= current_requestor.emailId %>
+
+<hr/>
+   <div class="card">
+  <h5 class="card-header"> <%= image_tag "logo.png", class:"card-img-top" %></h5>
+  <div class="card-body">
+    <h5 class="card-title">Create a Blood Request </h5>
+    <p class="card-text">
+
+     <%= link_to "New Request", request_new_path,class:"btn btn-info" %>
+     </p>
+      </div>
+
+    </div>
+
+
+  </div>
+ <div class="col-sm">
+      <%= link_to "Log out", logout_path ,:class=>"btn btn-primary"%>
+
+    </div>
+<% else %>
+
+<% end %>
+  <div class="row">
+    <div class="col">
+
+  </div>
+</div>
+
+
+
+
+    </div>
+    <div class="col-sm">
+<% if notice %>
+      <%= render 'layouts/alert' %>
+      <% end %>
+    </div>
+  </div>
+</div>

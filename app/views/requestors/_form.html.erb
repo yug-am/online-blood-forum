@@ -1,0 +1,72 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    
+    </div>
+    <div class="col-mm">
+      <div class="card">
+  <h5 class="card-header"> <%= image_tag "logo.png", class:"card-img-top" %></h5>
+  <div class="card-body">
+    <h5 class="card-title">Sign Up : Requestor</h5>
+    <p class="card-text">
+    <%= form_with(model: requestor) do |form| %>
+  <% if requestor.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(requestor.errors.count, "error") %> prohibited this requestor from being saved:</h2>
+
+      <ul>
+        <% requestor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+    <%= form.label :email_id, style: "display: block" %>
+    <%= form.text_field :emailId ,class:"form-control" , Placeholder:"Email Id" %>
+  </div>
+    </div>
+      <div class="col">
+      <div class="form-group">
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password ,class:"form-control" , Placeholder:"Password" %>
+  </div>
+    </div>
+      <div class="col">
+      <div class="form-group">
+    <%= form.label :password_confirmation, style: "display: block" %>
+    <%= form.password_field :password_confirmation ,class:"form-control" , Placeholder:"password" %>
+  </div>
+    </div>
+    </div>
+<div style="visibility: hidden">
+    <%= form.label :requestIds, style: "display: block" %>
+    <%= form.text_field :requestIds %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.submit nil ,:class=>"btn btn-primary" %>
+  </div>
+<% end %>
+    
+    
+    </p>
+  
+  </div>
+</div>
+
+
+
+
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+</div>

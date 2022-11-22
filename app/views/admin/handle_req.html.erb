@@ -3,7 +3,7 @@
 <nav class="navbar bg-light">
   <div class="container-fluid">
     <a class="navbar-brand"><h4 style="color:  darkorchid; "> <%= image_tag 'img_handle_req.png', size:"30" %>    Handle Request</h4></a>
-    
+
   </div>
 </nav>
 
@@ -14,13 +14,13 @@
         <th>Request ID</th>
         <th>Blood Group</th>
         <th>Location</th>
-        
+
       </tr>
     </thead>
 
     <tbody>
       <tr>
-        <td> <%= @request.requestID %></td>
+        <td> <%= @request.id %></td>
 
         <td> <%= @request.bloodType %></td>
 
@@ -31,13 +31,13 @@
   </table>
 
 <% if @donors.empty? %>
- <%= link_to "Delete",  admin_dashboard_path(:did=> -404,:rid=>@request.requestID ),  class:"btn btn-danger"  %>
+ <%= link_to "Delete",  admin_dashboard_path(:did=> -404,:rid=>@request.id ),  class:"btn btn-danger"  %>
    <h4 style="color:  darkorchid; text-align: center;">No Matching Donors for this Request</h4>
- 
+
 
  </br>
  <center>
-   
+
   <%= image_tag 'img_warning.png', size:"300" %>
   </center>
 
@@ -53,7 +53,7 @@
         <!remove this>
         <th> Is Used</th>
         <th>action</th>
-        
+
       </tr>
     </thead>
 
@@ -64,21 +64,21 @@
 
           <td> <%= donor.id %></td>
           <td> <%= donor.bloodGroup %></td>
-          <td><%= donor.location %></td>       
+          <td><%= donor.location %></td>
              <!remove this>
-        
-          <td><%= donor.isUsed %></td> 
 
-          <td>   <%= link_to "Allocate",  admin_dashboard_path(:did=> donor.id,:rid=>@request.requestID ),  class:"btn btn-success"  %>
-          </td>       
+          <td><%= donor.isUsed %></td>
+
+          <td> <% req_id= @request.id %><%= link_to "Allocate",  admin_dashboard_path(:did=> donor.id,:rid=>req_id ),  class:"btn btn-success"  %>
+          </td>
         </tr>
     <%end%>
-      <% end %>  
+      <% end %>
     </tbody>
   </table>
   <% end %>
   <% else %>
-  
+
    <h1 style="color:  darkorchid; text-align: center;">Not Found</h1>
  <h5 style="color:  darkorchid ; text-align: center;">Looks like you are lost, Aren't we all?</h5>
 

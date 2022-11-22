@@ -1,6 +1,16 @@
+----------------- Admin ----------
+rails g model Admin adminname:string password_digest:string
+
+
+rails generate migration add_password_to_admins password:string
+--------------- Requests--------------
 rails generate controller Admin dashboard
 rails g model user email:index location_id:integer:index
 rails generate model Request requestID:string:index bloodType:string location:string isConfirmed:boolean allocationCode:integer
+
+------------------Feed DB-------
+
+
 req = Request.new(requestID: "78", "bloodType": "A+", "location":"Calicut",isConfirmed:"0",allocationCode:"")
 req.save
 req = Request.new(requestID: "19", "bloodType": "O+", "location":"Kochi",isConfirmed:"0",allocationCode:"")
@@ -17,6 +27,9 @@ req = Request.new(requestID: "96", "bloodType": "O-", "location":"Wayanad",isCon
 req.save
 req = Request.new(requestID: "189", "bloodType": "AB-", "location":"NITC",isConfirmed:"0",allocationCode:"")
 req.save
+
+
+
 -------reset-------
 req = Request.find_by(requestID:"78")
 req.update(isConfirmed: false)
@@ -30,14 +43,22 @@ don.update(isUsed: false)
 don.save
 req = Request.find_by(requestID:"78")
 req.save
+
+
 =======ext-=========
 update(isUsed: true)
         @request_allo.update(isConfirmed: true)	
 
 rails g model Donor firstName:string middleName:string lastName:string email:string age:integer mobileNo:integer gender:string location:string bloodGroup:string donorID:string govtID:string isUsed:boolean lastGivenDate:date
-don=Donor.new(firstName:"Yugam", middleName:"", lastName:"Parashar", email:"Yugam11parashar@gmail.com", age:"23", mobileNo:"8826763400", gender:"M", location:"Calicut", bloodGroup:"A+", donorID:"4078", isUsed:"0", lastGivenDate:Date.parse('2022-08-05'))
+don=Donor.new(firstName:"Yugam", middleName:"", lastName:"Parashar",email:"Yugam11parashar@gmail.com", age:"23", mobileNo:"8826763400", gender:"M", location:"Calicut",bloodGroup:"A+", donorID:"4078", isUsed:"0", lastGivenDate:Date.parse('2022-08-05'))
 don.save
-don=Donor.new(firstName:"Swapnil", middleName:"", lastName:"Baviskar", email:"swpanpil_1@gmail.com", age:"24", mobileNo:"72891434", gender:"M", location:"Calicut", bloodGroup:"A+", donorID:"4018", isUsed:"0", lastGivenDate:Date.parse('2022-07-01'))
+don=Donor.new(firstName:"Swapnil", middleName:"", lastName:"Baviskar",email:"swpanpil_1@gmail.com", age:"24", mobileNo:"72891434", gender:"M", location:"Calicut",bloodGroup:"A+", donorID:"4018", isUsed:"0", lastGivenDate:Date.parse('2022-07-01'))
 don.save
-don=Donor.new(firstName:"Vaibhav", middleName:"", lastName:"Raibole", email:"v_1@gmail.com", age:"26", mobileNo:"72891434", gender:"M", location:"Calicut", bloodGroup:"B+", donorID:"4072", isUsed:"0", lastGivenDate:Date.parse('2022-07-01'))
+don=Donor.new(firstName:"Vaibhav", middleName:"", lastName:"Raibole",email:"v_1@gmail.com", age:"26", mobileNo:"72891434", gender:"M", location:"Calicut",bloodGroup:"B+", donorID:"4072", isUsed:"0", lastGivenDate:Date.parse('2022-07-01'))
 don.save
+
+don=Donor.new(firstName:"Sarita", middleName:"", lastName:"X",email:"sarita_lab@gmail.com", age:"26", mobileNo:"798", gender:"F", location:"Calicut",bloodGroup:"A+", donorID:"809", isUsed:"0", lastGivenDate:Date.parse('2022-07-01'))
+don.save
+-===============Delete======
+Donor.delete_all
+Request.delete_all
