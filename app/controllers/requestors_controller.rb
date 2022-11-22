@@ -66,6 +66,6 @@ class RequestorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def requestor_params
-      params.require(:requestor).permit(:emailId, :password, :password_confirmation, :requestIds)
+      params.require(:requestor).permit(:emailId, :password, :password_confirmation, :requestIds,:isAdmin)
     end
 end

@@ -48,7 +48,7 @@
     <%= form.label :requestIds, style: "display: block" %>
     <%= form.text_field :requestIds %>
   </div>
-
+<%= form.hidden_field :isAdmin, value: false %>
 
   <div class="form-group">
     <%= form.submit nil ,:class=>"btn btn-primary" %>

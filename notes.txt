@@ -62,9 +62,10 @@ don.save
 -===============Delete======
 Donor.delete_all
 Request.delete_all
-
-
-==========Admin login==============
+========== Working Admin login==============
+rails g migration add_adminFlag_to_requests adminFlag:boolean
+rails d migration  add_adminFlag_to_requests
+========== Failed Admin login==============
 
 #ADD is admin
 rails generate migration add_isAdmin_to_requestors isAdmin:boolean 

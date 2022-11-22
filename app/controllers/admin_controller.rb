@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-
+ before_action :require_admin_logged_in!
   # has_secure_password
 
 def new
