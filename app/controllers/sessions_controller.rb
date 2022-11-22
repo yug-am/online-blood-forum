@@ -9,10 +9,14 @@ class SessionsController < ApplicationController
       if requestor.isAdmin
 redirect_to admin_dashboard_path,notice:"Logged In"
       else
-      redirect_to admin_login_path,notice:"Logged In"
+      redirect_to  req_dashboard_path,notice:"Logged In"
     end
     else
-      redirect_to req_login_path,notice:"Invalid credentials" 
+      if session[:admin_call]
+      redirect_to admin_login_path,notice:"Invalid credentials " 
+    else
+       redirect_to req_login_path,notice:"Invalid credentials" 
+    end
       #flash.now[:alert]="Email or Password is invalid"
       #render ""
     end 

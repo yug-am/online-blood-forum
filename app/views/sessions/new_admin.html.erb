@@ -23,7 +23,8 @@
 <%= password_field_tag :password ,"",class:"form-control"%>
 </div>
 <div class="form-group">
-
+ <%= hidden_field_tag :admin_call, 1 ,class:"form-control" %>
+ 
 <%= submit_tag "Login" ,class:" btn btn-primary"  %>
 </div>
 <% end %>
@@ -34,10 +35,9 @@
 
     </div>
     <div class="col-sm">
-          <%if notice %>
+            <%if notice %>
 <%=render 'layouts/alert'%>
       <%end%>
-
     </div>
   </div>
 </div>
