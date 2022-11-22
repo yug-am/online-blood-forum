@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  # resources :admin
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
     get "/admin_dashboard", to: "admin#dashboard"
-     get "/admin_login", to: "admin#admin_login"
+    # get "/admin_login", to: "admin#admin_login"
     get "/handle_req/:id", to: "admin#handle_req", as:"handle_req"
    # get "/donor_form", to: "donor#new_donor_form"
   # Defines the root path route ("/")
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :sessions,only: [:new,:create, :destory]
   get 'req_signup', to:'requestors#new', as:"req_signup"
   get 'req_login',to:"sessions#new",as:"req_login"
+   get 'admin_login',to:"sessions#new_admin",as:"admin_login"
   get 'logout',to:"sessions#destroy", as: "logout"
 
 end

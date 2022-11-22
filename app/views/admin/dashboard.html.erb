@@ -1,5 +1,4 @@
 
-
 <nav class="navbar bg-light">
   <div class="container-fluid">
     <a class="navbar-brand"><h4 style="color:  darkorchid; "> <%= image_tag 'img_dashboard.png', size:"30" %>    Admin Dashboard</h4></a>
@@ -56,16 +55,4 @@ Last Action allocated: <%=@donor_allo.id%> to <%= @request_allo.requestID %> of 
       <% end %>
     </tbody>
   </table>
-   <%else%>
- </br>
-   <h1 style="color:  darkorchid; text-align: center;">Not Found</h1>
- <h5 style="color:  darkorchid ; text-align: center;">Looks like you are lost, Aren't we all?</h5>
 
- </br>
- <center>
-   <%= image_tag 'img_404.png', size:"300" %>
-  </center>
-
-<% end %>
-
-  <br>

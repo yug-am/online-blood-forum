@@ -1,5 +1,4 @@
-<% $is_admin%>
-<% if $is_admin %>
+
 <nav class="navbar bg-light">
   <div class="container-fluid">
     <a class="navbar-brand"><h4 style="color:  darkorchid; "> <%= image_tag 'img_handle_req.png', size:"30" %>    Handle Request</h4></a>
@@ -76,14 +75,5 @@
       <% end %>
     </tbody>
   </table>
-  <% end %>
-  <% else %>
 
-   <h1 style="color:  darkorchid; text-align: center;">Not Found</h1>
- <h5 style="color:  darkorchid ; text-align: center;">Looks like you are lost, Aren't we all?</h5>
-
- </br>
- <center>
-    <%= image_tag 'img_404.png', size:"300" %>
-  </center>
-<% end %>
+ 

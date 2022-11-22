@@ -13,7 +13,7 @@ end
 #admin lock
 #before_action :require_user_logged_in!
 def dashboard
-$is_admin = true
+$is_admin = false
 dig = 4
 init = 10 ** (dig - 1)
 final = 10 ** (dig) - 1
