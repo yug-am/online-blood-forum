@@ -5,6 +5,8 @@ Rails.application.routes.draw do
  # resources :admin
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
     get "/admin_dashboard", to: "admin#dashboard"
+    get "/admin_handled_request", to: "admin#admin_handled_request"
+    
     # get "/admin_login", to: "admin#admin_login"
     get "/handle_req/:id", to: "admin#handle_req", as:"handle_req"
    # get "/donor_form", to: "donor#new_donor_form"

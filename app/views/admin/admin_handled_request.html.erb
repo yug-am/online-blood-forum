@@ -1,0 +1,92 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Handled Requests</h1>
+
+<table id="requests" class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Request ID</th>
+      <th scope="col">Requestor ID</th>
+      <th scope="col">Blood Group</th>
+      <th scope="col">Location</th>
+      <th scope="col">Is Handled?</th>
+      <th scope="col">Allocation code</th>
+      <th scope="col">Location Allocated</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @requests.each do |request| %>
+  <tr>
+   
+    
+
+<% if request.isConfirmed   %>
+
+  <td>
+
+    <%= request.id %>
+  </td>
+  <td>
+
+    <%= request.requestorID %>
+  </td>
+
+  <td>
+
+    <%= request.bloodType %>
+  </td>
+
+  <td>
+
+    <%= request.location %>
+  </td>
+
+  <td>
+<% if request.isConfirmed %>
+    <%if request.allocationCode ==-404%>
+     Declined ❌
+    <%else%>
+ Allocated ✅
+    <%end%>
+    <%#= request.isConfirmed %>
+    <%else%>
+Pending ⏳
+    <%end%>
+  </td>
+
+  <td>
+    <%if request.allocationCode ==-404%>
+ Declined ❌
+
+    <%else%>
+    <% if request.isConfirmed %>
+    <%= request.allocationCode %> 
+    <%else%>
+    Pending ⏳
+    <%end%>
+    <%end%>
+  </td>
+
+ 
+<% end %>
+ <td>
+
+   <% if request.isConfirmed %>
+    <%if request.allocationCode ==-404%>
+     Declined ❌
+    <%else%>
+<%=request.locationAllocated %>
+    <%end%>
+    <%#= request.isConfirmed %>
+    <%else%>
+Pending ⏳
+    <%end%>
+  </td>
+
+    
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%#= link_to "New request", new_request_path %>

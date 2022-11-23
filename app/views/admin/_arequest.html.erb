@@ -1,5 +1,5 @@
 <%#= current_requestor.id%>
-<% if request.requestorID == current_requestor.id.to_s   %>
+<% if request.isConfirmed   %>
 
   <td>
 
@@ -35,7 +35,7 @@ Pending ⏳
 
     <%else%>
     <% if request.isConfirmed %>
-    Allocation code: <%= request.allocationCode %>, Location: <%= request.locationAllocated %>
+    Allocation code: <%= request.allocationCode %>, Location: <%= request.allocationCode %>
     <%else%>
     Pending ⏳
     <%end%>

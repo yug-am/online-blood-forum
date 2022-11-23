@@ -1,7 +1,13 @@
 class AdminController < ApplicationController
  before_action :require_admin_logged_in!
   # has_secure_password
+  def arequest
+  end
+def admin_handled_request
+  @requests = Request.all
+  @requests = @requests.order(updated_at: :desc)
 
+end
 def new
   @admin=Admin.new
 end
@@ -54,7 +60,7 @@ def handle_req
 @donors = ""
 #if $is_admin
 @donors = Donor.all
-
+@donors=@donors.order(created_at: :desc)
 @request = Request.find_by(id: params[:id])
 @gp = @request.bloodType
 # @donorsPost.where(user_id: @user.id)
