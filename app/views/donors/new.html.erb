@@ -4,6 +4,12 @@
 <% blood_group_list =["A+","A-","B+","B-","AB+","AB-","O+","O-"]%>
 
 <body>
+          <%if notice %>
+<%=render 'layouts/alert'%>
+      <%end%>
+ <%last_rec=Donor.last%> <%= if last_rec
+    "Last record saved of #{last_rec.email}"
+   end %>     
 <h1> Enter the Donor Information </h1>
 <%= form_for @donor do |f| -%>
     <label> First name </label>
@@ -68,12 +74,4 @@
 
 
 <br />
-<h1> Display All Donor Information </h1>
-<% if !@donors.blank? %>
-    <% for item in @donors %>
-    <%= item.firstName %> <%= item.middleName %> <%= item.lastName %> <%= item.email %> <%= item.age %> <%= item.mobileNo %> <%= item.gender %> <%= item.location %> <%= item.bloodGroup %> <%= item.govtID %> <%= item.donorID %> <%= item.lastGivenDate %> <br />
-    <% end %>
-<% else %>
-
-<% end %>
 

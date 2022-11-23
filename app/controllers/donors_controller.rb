@@ -10,7 +10,9 @@ end
         @donor = Donor.new(donor_params)
         @donor.isUsed=false
         if @donor.save #save into sql
-            redirect_to new_donor_path
+            redirect_to new_donor_path, alert: 'Donor saved successfully'
+             else #save into sql
+            redirect_to new_donor_path, alert: 'Save form error'
         end
     end
 

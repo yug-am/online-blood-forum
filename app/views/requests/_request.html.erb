@@ -1,9 +1,9 @@
-<%= current_requestor.id%>
+<%#= current_requestor.id%>
 <% if request.requestorID == current_requestor.id.to_s   %>
 
   <td>
 
-    <%= request.requestorID %>
+    <%= request.id %>
   </td>
 
   <td>
@@ -17,16 +17,30 @@
   </td>
 
   <td>
-
-    <%= request.isConfirmed %>
+<% if request.isConfirmed %>
+    <%if request.allocationCode ==-404%>
+     Declined ❌
+    <%else%>
+ Allocated ✅
+    <%end%>
+    <%#= request.isConfirmed %>
+    <%else%>
+Pending ⏳
+    <%end%>
   </td>
 
   <td>
+    <%if request.allocationCode ==-404%>
+ Declined ❌
 
-    <%= request.allocationCode %>
+    <%else%>
+    <% if request.isConfirmed %>
+    Allocation code: <%= request.allocationCode %>, Location: <%= request.allocationCode %>
+    <%else%>
+    Pending ⏳
+    <%end%>
+    <%end%>
   </td>
-  <td>
-      <%= link_to "Show this request", request %>
-    </td>
+ 
 <% end %>
 

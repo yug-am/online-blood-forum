@@ -31,12 +31,13 @@ if not @request_allo.isConfirmed
 @allocation_here = true
 if params[:did] =="-404"
 @donor_id_allo = -404
-@request_allo.update(isConfirmed: true, allocationCode: -404)
+@request_allo.update(isConfirmed: true, allocationCode: -404,locationAllocated:"-404")
 else
   @donor_allo = Donor.find_by(id: params[:did])
 @donor_id_allo = @donor_allo.id
+location_donor = @donor_allo.location
 @donor_allo.update(isUsed: true)
-@request_allo.update(isConfirmed: true, allocationCode: @rand_conf_num)
+@request_allo.update(isConfirmed: true, allocationCode: @rand_conf_num, locationAllocated: location_donor)
 end
 temp_time = @request_allo.updated_at.in_time_zone(TZInfo::Timezone.get('Asia/Kolkata'))
 @last_allocation = temp_time.to_time.strftime("%-I:%M %p, %dth %B '%Y")

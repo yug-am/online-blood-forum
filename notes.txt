@@ -1,8 +1,11 @@
+------------Allocated location--------------
+rails g migration add_locationAllocated_to_requests locationAllocated:string
+
 ------------Admin using Requestor DB-------
  
 req=Requestor.all
 req
-target=req.find_by_emailI(d"callmeadmin")//any id
+target=req.find_by_emailId("callmeadmin")//any id
 
 ----------------- Admin ----------
 rails g model Admin adminname:string password_digest:string
