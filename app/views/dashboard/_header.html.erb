@@ -5,13 +5,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
 
 
  <% if current_requestor %>
  <% if current_requestor.isAdmin %>
-     </li>
+     
       <li class="nav-item">
        <%= link_to "Dashboard", admin_dashboard_path,class:"nav-link" %>
 
@@ -38,20 +38,21 @@
         <%= link_to "Sign Out", logout_path,method: :delete,class:"nav-link" %>
 
       </li>
+</ul>
 
       <% else %>
-       <li class="nav-item">
-        <%= link_to "Requestor Sign In",req_login_path,class:"nav-link" %>
 
-      </li>
-       <li class="nav-item">
-        <%= link_to "Requestor Sign Up", req_signup_path,class:"nav-link" %>
-
-      </li>
+            
+    <form class="form-inline my-2 my-lg-0 float-left ">
+      
+     
+      <%= link_to 'Requestor Log In', req_login_path  ,class:"btn btn-outline-success my-2 my-sm-0 mr-1" %>
+           
+      <%= link_to 'Requestor Sign Up', req_signup_path ,class:"btn btn-outline-danger my-2 my-sm-0" %>
+    </form>
        <% end %>
 
 
-      </ul>
 
   </div>
 </nav>

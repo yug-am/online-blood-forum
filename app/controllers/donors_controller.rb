@@ -1,4 +1,8 @@
 class DonorsController < ApplicationController
+    helper_method :home_page?
+    def home_page?
+      false
+    end
 	 def new
 	 	#initialize
         @donor = Donor.new 

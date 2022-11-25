@@ -1,7 +1,10 @@
   class RequestsController < ApplicationController
   before_action :set_request, only: %i[ show edit update destroy ]
   before_action :require_user_logged_in!
-
+  helper_method :home_page?
+  def home_page?
+    false
+  end
   # GET /requests or /requests.json
   def index
     @requests = Request.all

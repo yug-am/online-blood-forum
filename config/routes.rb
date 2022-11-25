@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get "/handle_req/:id", to: "admin#handle_req", as:"handle_req"
    # get "/donor_form", to: "donor#new_donor_form"
   # Defines the root path route ("/")
-   root "dashboard#index"
+   root "home#index"
    #root "admin#admin_login"
    #root "sessions#home"
    resources :donors

@@ -2,6 +2,10 @@ class RequestorsController < ApplicationController
   #before_action :set_requestor, only: %i[ show edit update destroy ],:require_user_logged_in!
 
   # GET /requestors or /requestors.json
+  helper_method :home_page?
+  def home_page?
+    false
+end
   def index
     @requestors = Requestor.all
   end
