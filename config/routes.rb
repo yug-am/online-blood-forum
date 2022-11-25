@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/index'
   get 'donor/donor_home'
   #get 'request/req'
   get 'admin/dashboard'
