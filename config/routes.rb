@@ -15,6 +15,9 @@ Rails.application.routes.draw do
    root "home#index"
    #root "admin#admin_login"
    #root "sessions#home"
+   resources :home,only:[:new,:create]
+   get "forgot_password", to:"home#forgot_password",as:"forgot_password"
+   post "/search",to:"home#create",as:"search"
    resources :donors
    resources :admins
 
