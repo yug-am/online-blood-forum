@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_030101) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_26_102549) do
   create_table "admins", force: :cascade do |t|
     t.string "adminname"
     t.string "password_digest"
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_030101) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "isAdmin", default: false
+    t.string "pwdtoken"
     t.index ["emailId"], name: "index_requestors_on_emailId", unique: true
   end
 

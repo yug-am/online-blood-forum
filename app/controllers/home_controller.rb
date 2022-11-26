@@ -16,10 +16,11 @@ p params[:emailid]
 p params[:token]
   end
   def check
-    requestor=Requestor.find_by_emailId(params[:emailId])
+    @requestor=Requestor.find_by_emailId(params[:emailId])
     @token=random_token
-    if requestor
+    if @requestor
       #redirect_to  home_index_path,notice: "Reset Password linked mailed to your registered email id "+@token
+      @requestor.update()
       redirect_to  display_msg_path(:emailid=>params[:emailId],:token=>@token),notice: "Reset Password linked mailed to your registered email id "
     else
       redirect_to  home_index_path,notice: params[:emailId]+" The error user ID does not exist."
