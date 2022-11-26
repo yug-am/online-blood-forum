@@ -18,7 +18,10 @@ Rails.application.routes.draw do
    resources :home,only:[:new,:check]
    get "forgot_password", to:"home#forgot_password",as:"forgot_password"
    post "/search",to:"home#check",as:"search"
+   post "/reset_pwd",to:"home#reset_pwd",as:"reset_pwd"
    get "display_msg",to:"home#display_msg",as:"display_msg"
+   get "reset_password", to:"home#reset_password",as:"reset_password"
+
    resources :donors
    resources :admins
 
