@@ -15,9 +15,10 @@ Rails.application.routes.draw do
    root "home#index"
    #root "admin#admin_login"
    #root "sessions#home"
-   resources :home,only:[:new,:create]
+   resources :home,only:[:new,:check]
    get "forgot_password", to:"home#forgot_password",as:"forgot_password"
-   post "/search",to:"home#create",as:"search"
+   post "/search",to:"home#check",as:"search"
+   get "display_msg",to:"home#display_msg",as:"display_msg"
    resources :donors
    resources :admins
 
