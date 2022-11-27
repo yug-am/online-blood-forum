@@ -2,10 +2,10 @@ class RequestorsController < ApplicationController
   #before_action :set_requestor, only: %i[ show edit update destroy ],:require_user_logged_in!
 
   # GET /requestors or /requestors.json
-  helper_method :home_page?
-  def home_page?
-    false
-end
+  #helper_method :home_page?
+  #def home_page?
+  #  false
+#end
   def index
     @requestors = Requestor.all
   end
@@ -70,6 +70,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def requestor_params
-      params.require(:requestor).permit(:emailId, :password, :password_confirmation, :requestIds,:isAdmin)
+      params.require(:requestor).permit(:emailId, :password, :password_confirmation, :requestIds)
     end
 end

@@ -20,7 +20,7 @@ end
 #before_action :require_user_logged_in!
 def dashboard
 $is_admin = false
-dig = 4
+dig = 6
 init = 10 ** (dig - 1)
 final = 10 ** (dig) - 1
 @rand_conf_num = rand(init...final)
@@ -61,10 +61,12 @@ def handle_req
 #if $is_admin
 @donors = Donor.all
 @donors=@donors.order(created_at: :desc)
+
 @request = Request.find_by(id: params[:id])
+@r_location=@request.location
 @gp = @request.bloodType
 # @donorsPost.where(user_id: @user.id)
-@donors = Donor.where(bloodGroup: @gp)
+@donors = Donor.where(bloodGroup: @gp,location: @r_location)
 @donors = @donors.where(isUsed: false)
 # @request = Request.find(params[: id])
 #end

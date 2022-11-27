@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_26_102549) do
-  create_table "admins", force: :cascade do |t|
-    t.string "adminname"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2022_11_27_075251) do
   create_table "donors", force: :cascade do |t|
     t.string "firstName"
     t.string "middleName"
@@ -43,7 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_102549) do
     t.string "requestIds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "isAdmin", default: false
     t.string "pwdtoken"
     t.index ["emailId"], name: "index_requestors_on_emailId", unique: true
   end
@@ -59,6 +50,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_26_102549) do
     t.string "requestorID"
     t.string "locationAllocated"
     t.index ["requestID"], name: "index_requests_on_requestID"
+  end
+
+  create_table "u_admins", force: :cascade do |t|
+    t.string "usern"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
