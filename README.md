@@ -10,6 +10,12 @@
     - View donors for pending blood request
     
 ### Images
-![Admin dashboard](./readme_images/readme_admin_dashboard.jpg)
+![Homepage](./readme_images/readme_home_page.jpg)
+![Login page](./readme_images/readme_login.jpg)
+![Requestor dashboard](./readme_images/readme_requestor_dashboard.jpg)
+![Request status page](./readme_images/readme_requestor_req_status.jpg)
+![Admin dashboard](./readme_images/readme_admin_dashboard_final.jpg)
+![Admin request status page](./readme_images/readme_admin_req_status.jpg)
+![Admin request status page](./readme_images/readme_Admin_available_stats.jpg)
 
 [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yug-am/)

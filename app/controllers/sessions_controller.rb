@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
 
     if session[:admin_call]
     session[:user_id]=nil
-    redirect_to admin_login_path,notice:"Logged out"
+    redirect_to req_login_path,notice:"Logged out"
   else
     session[:user_id]=nil
     redirect_to root_url,notice:"Logged out"
