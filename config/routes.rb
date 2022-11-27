@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
     get "/admin_dashboard", to: "admin#dashboard"
     get "donor_registration", to: "donors#new"
+       get "blood_stats", to: "admin#blood_av_stats"
     get "/admin_handled_request", to: "admin#admin_handled_request"
 
     # get "/admin_login", to: "admin#admin_login"

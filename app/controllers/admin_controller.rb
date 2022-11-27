@@ -3,6 +3,9 @@ class AdminController < ApplicationController
   # has_secure_password
   def arequest
   end
+  def blood_av_stats
+@data=Donor.where(isUsed: false).group(:bloodGroup).count
+  end
 def admin_handled_request
   @requests = Request.all
   @requests = @requests.order(updated_at: :desc)
