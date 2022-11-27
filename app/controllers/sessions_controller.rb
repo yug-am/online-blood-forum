@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   def create
     requestor=Requestor.find_by_emailId(params[:emailId])
     if requestor && requestor.authenticate(params[:password])
-
+       session[:u_admin_id] = nil
       session[:user_id]=requestor.id
       #session[:admin_call]=params[:admin_call]
       redirect_to  req_dashboard_path,notice:"Logged In"

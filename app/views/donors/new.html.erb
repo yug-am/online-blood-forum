@@ -31,12 +31,12 @@
 
 <div class="mb-3">
      <%= f.label "Email" %>
-    <%= f.email_field :email, :required => true, class:"form-control", placeholder:"naruto_hokage@gmail.com" %>
+    <%= f.telephone_field :email, :required => true, class:"form-control", placeholder:"naruto_hokage@gmail.com" %>
 </div>
 
 <div class="mb-3">
      <%= f.label "Age" %>
-    <%= f.email_field :age , :required => true, class:"form-control", placeholder:"26" %>
+    <%= f.number_field :age , :required => true, class:"form-control", placeholder:"26",in: 18..60, step: 1  %>
 </div>
 
 <div class="mb-3">
