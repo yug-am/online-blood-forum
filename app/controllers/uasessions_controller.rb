@@ -4,10 +4,11 @@ class UasessionsController < ApplicationController
 
   def create
    user = UAdmin.find_by(usern: params[:usern])
-   user.present? && user.authenticate(params[:password])
+   if user.present? && user.authenticate(params[:password])
        session[:u_admin_id] = user.id
-       redirect_to root_path, notice: "Logged In Successfully"
+       redirect_to admin_dashboard_path, notice: "Logged In Successfully"
   end
+end
 
 
    def destroy

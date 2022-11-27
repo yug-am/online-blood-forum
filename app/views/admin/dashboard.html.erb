@@ -21,15 +21,15 @@
       <%if @allocation_here %>
         <% if @donor_id_allo == -404%>
       <div class="alert alert-danger" role="alert">
-      
-         Last Request was Declined: RequestID <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+
+         Last Request was Declined: RequestID <%= @request_allo.id %> of <%= @request_allo.bloodType %>
        on <%= @last_allocation %>
- 
+
 <%else%>
       <div class="alert alert-info" role="alert">
-Last Request was Accepted: <%=@donor_allo.id%> to <%= @request_allo.requestID %> of <%= @request_allo.bloodType %>
+Last Request was Accepted: <%=@donor_allo.id%> to <%= @request_allo.id %> of <%= @request_allo.bloodType %>
        <%= @last_allocation %>
-       
+
  <%end%>
 </div>
 
@@ -42,11 +42,11 @@ Last Request was Accepted: <%=@donor_allo.id%> to <%= @request_allo.requestID %>
           <td> <%= request.id %></td>
           <td> <%= request.bloodType %></td>
           <td><%= request.location %></td>
-           
+
 
           <td>
             <%@req_id=request.id%>
-          	
+
   <%= link_to "Handle Request", handle_req_path(@req_id), class:"btn btn-primary" %>
 
           </td>

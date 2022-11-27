@@ -8,7 +8,7 @@ def new
     #User.new({email:"bob@bob",password:"password"})
     if @user.save
       session[:u_admin_id] = @user.id
-      redirect_to root_path, notice: "Succefuly created account"
+      redirect_to admin_dashboard_path, notice: "Succefuly created account"
     else
       flash[:alert] = "Something went wrong"
       render :new
