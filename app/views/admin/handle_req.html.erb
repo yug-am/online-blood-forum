@@ -53,8 +53,6 @@
         <th>donorID</th>
         <th>Blood Group</th>
         <th>Location</th>
-        <!remove this>
-        <th> Is Used</th>
         <th>action</th>
 
       </tr>
@@ -68,9 +66,6 @@
           <td> <%= donor.id %></td>
           <td> <%= donor.bloodGroup %></td>
           <td><%= donor.location %></td>
-             <!remove this>
-
-          <td><%= donor.isUsed %></td>
 
           <td> <% req_id= @request.id %><%= link_to "Allocate",  admin_dashboard_path(:did=> donor.id,:rid=>req_id ),  class:"btn btn-success"  %>
           </td>

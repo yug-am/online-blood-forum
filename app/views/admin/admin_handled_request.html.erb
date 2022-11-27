@@ -69,22 +69,29 @@ Pending ⏳
 
  
 <% end %>
- <td>
+
 
    <% if request.isConfirmed %>
     <%if request.allocationCode ==-404%>
+     <td>
      Declined ❌
+      </td>
+      </tr>
     <%else%>
+      <td>
 <%=request.locationAllocated %>
+  </td>
+</tr>
     <%end%>
+
     <%#= request.isConfirmed %>
     <%else%>
-Pending ⏳
+
     <%end%>
-  </td>
+  </#td>
 
     
-    </tr>
+
   <% end %>
   </tbody>
 </table>

@@ -1,7 +1,7 @@
 
 
-<% location_list =["NITC","KMCT","IIM Kozhikode","Baby Memorial Hospital","Palakkad"]%>
-<% blood_group_list =["A+","A-","B+","B-","AB+","AB-","O+","O-"]%>
+<% location_list =["IIM KozhiKode", "NIT Calicut", "KMCT", "Baby Memorial Hospital", "Nirmala Hospital" ]%>
+<% blood_group_list = [ "O+",  "O-", "A+", "A-", "B+", "B-", "AB+", "AB-" ]%>
 
 <body>
           <%if notice %>
@@ -72,8 +72,9 @@
 </div>
 
 <div class="mb-3">
+     <%days=15%>
      <%= f.label "Donation Date" %>
-    <%= f.date_field :lastGivenDate , value: Date.today %>
+    <%= f.date_field :lastGivenDate , value: Date.today, max: Date.today, min:Date.today.days_ago(days)  %>
     <%= f.hidden_field :isUsed, :value => false %>
 </div>
 
