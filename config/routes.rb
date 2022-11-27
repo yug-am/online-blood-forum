@@ -43,4 +43,9 @@ Rails.application.routes.draw do
   #U_Admin
   get "sign_in", to: "uasessions#new"
   post "sign_in", to: "uasessions#create"
+
+  get "sign_up", to: "uaregistrations#new"
+  post "sign_up", to: "uaregistrations#create"
+
+
 end

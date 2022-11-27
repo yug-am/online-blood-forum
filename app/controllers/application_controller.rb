@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def current_admin
     if session[:u_admin_id]
-        @current_admin||=UAdmin.find(session[:u_admin_id])
+       @current_admin||=UAdmin.find(session[:u_admin_id])
     else
         @current_admin=nil
     end

@@ -9,69 +9,78 @@
       <%end%>
  <%last_rec=Donor.last%> <%= if last_rec
     "Last record saved of #{last_rec.email}"
-   end %>     
+   end %>
 <h1> Enter the Donor Information </h1>
-<%= form_for @donor do |f| -%>
-    <label> First name </label>
-    <br>
-    <%= f.text_field :firstName ,:required => true%>
-    <br>
-    <label> Middle name </label>
-    <br>
-    <%= f.text_field :middleName %>
-    <br>
-    <label> Last name </label>
-    <br>
-    <%= f.text_field :lastName %>
-    <br>
-    <label> Email </label>
-    <br>
-    <%= f.email_field :email, :required => true%>
-    <br>
-    <label> Age </label>
-    <br>
-    <%= f.text_field :age ,:required => true %>
-    <br>
-    <label> Mobile No </label>
-    <br>
-    <%= f.text_field :mobileNo %>
-    <br>
-    <label> Gender </label>
+<%= form_with model: @donor do |f| %>
 
+  <div class="mb-3">
+    <%= f.label "First Name" %>
+    <%= f.text_field :firstName ,:required => true, class:"form-control", placeholder:"Naruto" %>
+      </div>
+
+
+<div class="mb-3">
+     <%= f.label "Middle Name" %>
+    <%= f.text_field :middleName, class:"form-control", placeholder:"Minato" %>
+</div>
+
+<div class="mb-3">
+     <%= f.label "Last Name" %>
+    <%= f.text_field :lastName, class:"form-control", placeholder:"Uzumaki" %>
+</div>
+
+<div class="mb-3">
+     <%= f.label "Email" %>
+    <%= f.email_field :email, :required => true, class:"form-control", placeholder:"naruto_hokage@gmail.com" %>
+</div>
+
+<div class="mb-3">
+     <%= f.label "Age" %>
+    <%= f.email_field :age , :required => true, class:"form-control", placeholder:"26" %>
+</div>
+
+<div class="mb-3">
+     <%= f.label "Mobile No." %>
+    <%= f.email_field :mobileNo , :required => true, class:"form-control", placeholder:"Your 10 digits GO HERE!!!" %>
+</div>
+
+<div class="mb-3">
+<%= f.label "Gender" %>
    <%= f.radio_button :gender, "Male" %>
 <%= f.label :gender, "Male" %>
 <%= f.radio_button :gender, "Female" %>
 <%= f.label :gender, "Female" %>
 <%= f.radio_button :gender, "Other" %>
 <%= f.label :gender, "Other" %>
+</div>
 
-<br>
- 
-    <label> Location </label>
-    <br>
+
+<div class="mb-3">
+     <%= f.label "Location" %>
     <%= f.select :location, location_list %>
-    <br>
- 
-    <label> Bloodgroup </label>
-    <br>
-      <%= f.select :bloodGroup, blood_group_list %>
-    <br>
-    <label> Government ID </label>
-    <br>
-    <%= f.text_field :govtID  ,:required => true%>
-    <br>
-    <label>Donation Date </label>
-    <br>
-    <%= f.date_field :lastGivenDate ,    value: Date.today%>
-    <br>
+</div>
+
+
+<div class="mb-3">
+     <%= f.label "Bloodgroup " %>
+    <%= f.select :bloodGroup, blood_group_list %>
+</div>
+
+<div class="mb-3">
+     <%= f.label "Government ID " %>
+    <%= f.text_field :govtID  ,:required => true %>
+</div>
+
+<div class="mb-3">
+     <%= f.label "Donation Date" %>
+    <%= f.date_field :lastGivenDate , value: Date.today %>
     <%= f.hidden_field :isUsed, :value => false %>
-    <%= f.submit "Submit" %>
+</div>
 
-<% end -%>
+ <div class="mb-3">
+        <%= f.submit "Lets Donate", class: "btn btn-primary" %>
+    </div>
+
+<% end %>
 </body>
-
-
-
-
-<br />
 
