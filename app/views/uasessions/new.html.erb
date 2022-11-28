@@ -1,7 +1,16 @@
 <h1>Admin Sign In</h1>
 
 <%= form_with url: sign_in_path do |form| %>
-    <div class="mb-3">
+<% flash.each do |type, msg| %>
+  <div>
+  <div class="alert alert-danger" role="alert">
+  <%= msg %>
+</div>
+
+  </div>
+<% end %>
+
+    <div class="mb-3" >
     <%= form.label :username %>
     <%= form.text_field :usern, class:"form-control", placeholder:"example@apple.com" %>
     </div>
@@ -14,5 +23,6 @@
     <div class="mb-3">
         <%= form.submit "Log In", class: "btn btn-primary" %>
     </div>
+
 
 <% end %>

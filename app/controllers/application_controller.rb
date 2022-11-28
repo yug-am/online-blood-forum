@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   helper_method :current_requestor, :current_admin
 
+
+
   def current_requestor
       if session[:user_id]
           @current_requestor||=Requestor.find(session[:user_id])

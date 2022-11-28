@@ -1,12 +1,17 @@
 class UasessionsController < ApplicationController
   def new
+    @user = UAdmin.new
   end
 
   def create
    user = UAdmin.find_by(usern: params[:usern])
    if user.present? && user.authenticate(params[:password])
-       session[:u_admin_id] = user.id
+   # puts "in if"
+    session[:u_admin_id] = user.id
        redirect_to admin_dashboard_path, notice: "Logged In Successfully"
+    else
+      #puts "in else"
+       flash[:alert]="Email or Password is invalid"
   end
 end
 
